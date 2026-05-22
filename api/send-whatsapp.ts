@@ -114,8 +114,8 @@ app.post(["/api/send-whatsapp", "/"], async (req, res) => {
         language: "es",
         header: {
           type: "document",
-          url: "https://qrvwp.s3.dualstack.us-west-2.amazonaws.com/Catalogos%20Digitales%20MY26/C%C3%A1talogo%20Digital%20Taos%202026%20%28Actualizado%29.pdf",
-          filename: "Catalogo_Digital_Taos_2026.pdf"
+          url: "https://pdfobject.com/pdf/sample.pdf",
+          filename: "Taos_2026.pdf"
         },
         body: {
           nombre: nombre
