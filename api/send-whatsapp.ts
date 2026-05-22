@@ -79,6 +79,11 @@ app.post(["/api/send-whatsapp", "/"], async (req, res) => {
       return res.status(400).json({ error: "Parámetros 'to' y 'nombre' son requeridos." });
     }
 
+    const telefono = to;
+    const telefonoLimpio = String(telefono).replace(/[\s\-\(\)\+]/g, "");
+    console.log("Telefono original:", telefono);
+    console.log("Telefono limpio:", telefonoLimpio);
+
     const protocol = req.headers["x-forwarded-proto"] || req.protocol || "http";
     const host = req.headers["x-forwarded-host"] || req.get("host");
     
@@ -115,7 +120,7 @@ app.post(["/api/send-whatsapp", "/"], async (req, res) => {
 
     if (type === "catalogo_digital") {
       payload = {
-        to: to,
+        to: telefonoLimpio,
         template: "demo_volky_catalogo_taos_2026",
         language: "es",
         header: {
@@ -129,7 +134,7 @@ app.post(["/api/send-whatsapp", "/"], async (req, res) => {
       };
     } else {
       payload = {
-        to: to,
+        to: telefonoLimpio,
         template: "demo_volky_ficha_tecnica_taos_2026",
         language: "es",
         header: {
