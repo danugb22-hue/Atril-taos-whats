@@ -84,20 +84,9 @@ app.post(["/api/send-whatsapp", "/"], async (req, res) => {
     console.log("Telefono original:", telefono);
     console.log("Telefono limpio:", telefonoLimpio);
 
-    const protocol = req.headers["x-forwarded-proto"] || req.protocol || "http";
-    const host = req.headers["x-forwarded-host"] || req.get("host");
-    
-    // Dynamic BASE_URL detection: compatibility with Vercel and generic production / local environments
-    let derivedBaseUrl = process.env.APP_URL;
-    if (!derivedBaseUrl) {
-      if (process.env.VERCEL_URL) {
-        derivedBaseUrl = `https://${process.env.VERCEL_URL}`;
-      } else {
-        derivedBaseUrl = `${protocol}://${host}`;
-      }
-    }
-    const BASE_URL = derivedBaseUrl.replace(/\/$/, "");
-    console.log(`[Express API] Dynamic BASE_URL resolved to: ${BASE_URL}`);
+    const baseUrl = "https://atril-taos-2026.vercel.app";
+    const pdfUrl = `${baseUrl}/pdfs/ficha-tecnica-taos-2026.pdf`;
+    console.log("FINAL STABLE PDF URL:", pdfUrl);
 
     // Verify local PDF existence (Requirement 8)
     const localPdfPath = path.join(process.cwd(), "public", "pdfs", "ficha-tecnica-taos-2026.pdf");
@@ -139,7 +128,7 @@ app.post(["/api/send-whatsapp", "/"], async (req, res) => {
         language: "es",
         header: {
           type: "document",
-          url: `${BASE_URL}/pdfs/ficha-tecnica-taos-2026.pdf`,
+          url: pdfUrl,
           filename: "ficha-tecnica-taos-2026.pdf"
         },
         body: {
