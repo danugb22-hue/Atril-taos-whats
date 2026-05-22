@@ -1,0 +1,342 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+/* =========================
+   VW TEXT (varios pesos)
+========================= */
+@font-face {
+  font-family: 'VW Text';
+  src: url('https://d2kg4fq77jkz6q.cloudfront.net/fonts/VWTextWeb-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'VW Text';
+  src: url('https://d2kg4fq77jkz6q.cloudfront.net/fonts/VWTextWeb-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'VW Text';
+  src: url('https://d2kg4fq77jkz6q.cloudfront.net/fonts/VWTextWeb-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-display: swap;
+}
+
+/* =========================
+   VW HEAD
+========================= */
+@font-face {
+  font-family: 'VW Head';
+  src: url('https://d2kg4fq77jkz6q.cloudfront.net/fonts/VWHeadWeb-ExtraBold.woff2') format('woff2');
+  font-weight: 800;
+  font-display: swap;
+}
+
+/* =========================
+   BASE (FORZADO REAL)
+========================= */
+@layer base {
+  body {
+    font-family: 'VW Text', ui-sans-serif, system-ui, sans-serif;
+    @apply text-[#404040];
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'VW Head', 'Outfit', sans-serif;
+    @apply tracking-tight text-[#001E50];
+  }
+
+  /* Hide scrollbar */
+  *::-webkit-scrollbar {
+    display: none;
+  }
+
+  * {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-video-mobile {
+    object-fit: cover !important;
+    object-position: top !important;
+    background-color: #f6f5f2 !important;
+  }
+
+  .interior-video-mobile {
+    object-fit: cover !important;
+    object-position: center center !important;
+  }
+
+  .splash-video-mobile {
+    object-fit: cover !important;
+    object-position: center center !important;
+  }
+  
+  .hero-photo-mobile {
+    object-fit: contain !important;
+    object-position: top !important;
+    background-color: #f6f5f2 !important;
+  }
+
+  .hero-container-mobile {
+    height: auto !important;
+    aspect-ratio: 16/10 !important;
+    background-color: #f6f5f2 !important;
+  }
+}
+
+/* Tall Mobile / Foldable Optimization */
+@media (max-width: 767px) and (min-height: 880px) {
+  .main-phone-container {
+    min-height: 100vh !important;
+    display: flex !important;
+    flex-direction: column !important;
+    /* We spread things out slightly to avoid a huge gap at the bottom */
+    justify-content: flex-start !important;
+  }
+
+  .badges-section {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .gallery-section {
+    padding-bottom: 1.5rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .gallery_item {
+    width: 380px !important;
+  }
+
+  .action-row-container {
+    flex: 0 1 auto !important;
+    padding-top: 0.5rem !important;
+    padding-bottom: 1.5rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+  }
+  
+  footer {
+    margin-top: 0 !important;
+    padding-bottom: 1.5rem !important;
+    padding-top: 0.5rem !important;
+  }
+}
+
+/* Kiosk Mode Optimization (1080x1920) */
+@media (min-width: 1000px) and (min-height: 1700px) {
+  .main-phone-container {
+    max-width: 100% !important; /* Allow full expansion on kiosk */
+    width: 1080px !important;
+    margin: 0 auto !important;
+    min-height: 100vh !important;
+    background: #f6f5f2 !important;
+    box-shadow: none !important; /* No shadow needed if it fills width */
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  header {
+    background-color: #f6f5f2 !important;
+    height: 120px !important; /* Larger header */
+  }
+
+  header img {
+    height: 60px !important; /* Larger logo */
+  }
+
+  .hero-container-mobile {
+    height: auto !important;
+    min-height: auto !important;
+    aspect-ratio: 16/9 !important;
+    width: 100% !important;
+    margin-bottom: 2rem !important;
+  }
+
+  .hero-photo-mobile,
+  .hero-video-mobile {
+    object-fit: contain !important; /* Keep whole car visible */
+    object-position: center !important;
+  }
+
+  /* Expand badges section */
+  .badges-section {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+    margin-bottom: 2rem !important;
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+    gap: 1.5rem !important;
+  }
+
+  .badges-section .font-display {
+    font-size: 4.5rem !important;
+  }
+
+  .badges-section img {
+    height: 100px !important;
+  }
+
+  .badges-section button {
+    font-size: 1rem !important;
+    padding: 0.5rem 1.5rem !important;
+  }
+
+  /* Expand gallery items */
+  .gallery-section {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .gallery-section .flex {
+    gap: 3rem !important;
+    padding-left: 4rem !important;
+    padding-right: 4rem !important;
+  }
+
+  .gallery_item {
+    width: 750px !important; /* Adjusted from 900px as requested */
+    border-radius: 3rem !important;
+  }
+
+  /* Expand action cards */
+  .action-row-container {
+    padding-top: 1.5rem !important;
+    padding-bottom: 1rem !important;
+    padding-left: 2.5rem !important;
+    padding-right: 2.5rem !important;
+  }
+
+  .action-row-container > div {
+    gap: 1.5rem !important; /* Gap between cards closer */
+  }
+
+  .action-row-container .ActionCard {
+    padding: 1.5rem 0.75rem !important;
+    border-radius: 1.5rem !important; /* More square */
+    min-height: 180px !important; /* Reduced height to allow wider appearance */
+    aspect-ratio: auto !important; /* Remove square constraint */
+  }
+
+  .action-row-container .ActionCard svg {
+    width: 60px !important;
+    height: 60px !important;
+  }
+
+  .action-row-container .ActionCard span {
+    font-size: 1.25rem !important;
+    line-height: 1.3 !important;
+    margin-top: 1.5rem !important;
+  }
+
+  /* Modals expansion */
+  .modal-container, 
+  [class*="bg-white rounded-3xl"] {
+    max-width: 90vw !important;
+    padding: 5rem !important;
+    border-radius: 4rem !important;
+  }
+
+  /* Footer scaling */
+  footer {
+    margin-top: 1rem !important;
+    padding-bottom: 4rem !important;
+    padding-top: 0.5rem !important;
+    gap: 6rem !important;
+  }
+
+  footer span {
+    font-size: 1.5rem !important;
+  }
+
+  /* Typography scaling */
+  .text-vw-blue { font-size: 4rem !important; }
+  .text-gray-500 { font-size: 1.8rem !important; }
+  .text-sm { font-size: 1.5rem !important; }
+  
+  /* Navigation arrows in gallery */
+  .gallery-section .absolute.right-2,
+  .gallery-section .absolute.left-2 {
+    transform: scale(2.5) translateY(-20%) !important;
+  }
+
+  /* Hero interaction elements scaling */
+  .group\/video {
+    width: 320px !important; /* Scale sidebar */
+    height: 180px !important;
+    border-radius: 4rem 0 0 4rem !important;
+  }
+
+  .asset-icons-container {
+    bottom: 7rem !important; /* Lowered */
+    right: 4rem !important;
+    left: auto !important;
+    align-items: flex-end !important;
+  }
+
+  /* Hero Asset Icons Scaling */
+  .asset-icons-container > div {
+    padding: 0.5rem 1rem !important;
+    border-radius: 1.5rem !important;
+    gap: 0.5rem !important;
+  }
+
+  .asset-icons-container button,
+  [class*="p-1.5 sm:p-2 rounded-md"] {
+    padding: 0.8rem !important;
+  }
+
+  .asset-icons-container svg,
+  [class*="p-1.5 sm:p-2 rounded-md"] svg {
+    width: 28px !important;
+    height: 28px !important;
+  }
+
+  /* Ficha Tecnica button on hero */
+  .ficha-tecnica-container {
+    bottom: 1.5rem !important; /* Lowered, almost stuck to the bottom */
+    right: 4rem !important;
+    left: auto !important;
+    justify-content: flex-end !important;
+  }
+
+  .ficha-tecnica-container button {
+    font-size: 1.5rem !important;
+    padding: 1rem 3.5rem !important;
+    border-radius: 3rem !important;
+  }
+  
+  .ficha-tecnica-container button svg {
+    width: 24px !important;
+    height: 24px !important;
+  }
+
+  /* Promo banner in hero if present (from user screenshot) */
+  [class*="bg-[#ffda00]"],
+  .promo-banner {
+    padding: 1.5rem 4rem !important;
+    font-size: 2.5rem !important;
+    border-radius: 1rem !important;
+  }
+
+  /* Version slider scaling */
+  [class*="bg-white/90 backdrop-blur-sm rounded-full p-1.5 flex shadow-lg"] {
+    padding: 1.5rem 3rem !important;
+    border-radius: 5rem !important;
+    gap: 1rem !important;
+  }
+
+  [class*="bg-white/90 backdrop-blur-sm rounded-full p-1.5 flex shadow-lg"] button {
+    font-size: 1.5rem !important;
+    padding: 1rem 3rem !important;
+  }
+}
