@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "rewrites": [
+    {
+      "source": "/api/send-whatsapp",
+      "destination": "/api/send-whatsapp.ts"
+    }
+  ]
+}
